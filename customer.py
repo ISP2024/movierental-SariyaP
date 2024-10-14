@@ -40,8 +40,6 @@ class Customer:
         rental_fmt = "{:40s}  {:6d} {:6.2f}\n"
         
         for rental in self.rentals:
-            # compute the frequent renter points based on movie price code
-            frequent_renter_points = rental.rental_points(frequent_renter_points, rental)
             #  add a detail line to statement
             statement += rental_fmt.format(
                             rental.get_movie().get_title(), 
@@ -52,7 +50,7 @@ class Customer:
         statement += "\n"
         statement += "{:40s}  {:6s} {:6.2f}\n".format(
                        "Total Charges", "", self.total_charge())
-        statement += "Frequent Renter Points earned: {}\n".format(frequent_renter_points)
+        statement += "Frequent Renter Points earned: {}\n".format(self.total_points())
 
         return statement
 
@@ -61,4 +59,10 @@ class Customer:
         for rental in self.rentals:
             total_amount += rental.get_price(rental)
         return total_amount
+
+    def total_points(self):
+        frequent_renter_points = 0
+        for rental in self.rentals:
+            frequent_renter_points = rental.rental_points(frequent_renter_points, rental)
+        return frequent_renter_points
 

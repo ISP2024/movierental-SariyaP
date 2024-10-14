@@ -18,12 +18,26 @@ class CustomerTest(unittest.TestCase):
         self.regular_movie = Movie("CitizenFour", Movie.REGULAR)
         self.childrens_movie = Movie("Frozen", Movie.CHILDRENS)
 
-    def test_total(self):
-        c = Customer("Bill")
-        c.add_rental(Rental(self.new_movie, 1))
-        c.add_rental(Rental(self.childrens_movie, 1))
-        self.assertEqual(4.5, c.total_charge())
-    
+    def test_total_price(self):
+        c1 = Customer("Bill")
+        c1.add_rental(Rental(self.new_movie, 1))
+        c1.add_rental(Rental(self.childrens_movie, 3))
+        self.assertEqual(4.5, c1.total_charge())
+        c2 = Customer("Billy")
+        c2.add_rental(Rental(self.regular_movie, 2))
+        c2.add_rental(Rental(self.childrens_movie, 1))
+        self.assertEqual(3.5, c2.total_charge())
+
+    def test_total_point(self):
+        c1 = Customer("Bill")
+        c1.add_rental(Rental(self.new_movie, 1))
+        c1.add_rental(Rental(self.childrens_movie, 1))
+        self.assertEqual(2, c1.total_points())
+        c2 = Customer("Billy")
+        c2.add_rental(Rental(self.new_movie, 2))
+        c2.add_rental(Rental(self.childrens_movie, 1))
+        self.assertEqual(3, c2.total_points())
+
     def test_statement(self):
         stmt = self.c.statement()
         # get total charges from statement using a regex
