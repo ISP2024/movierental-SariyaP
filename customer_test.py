@@ -22,21 +22,21 @@ class CustomerTest(unittest.TestCase):
         c1 = Customer("Bill")
         c1.add_rental(Rental(self.new_movie, 1))
         c1.add_rental(Rental(self.childrens_movie, 3))
-        self.assertEqual(4.5, c1.total_charge())
+        self.assertEqual(4.5, c1.get_total_charge())
         c2 = Customer("Billy")
         c2.add_rental(Rental(self.regular_movie, 2))
         c2.add_rental(Rental(self.childrens_movie, 1))
-        self.assertEqual(3.5, c2.total_charge())
+        self.assertEqual(3.5, c2.get_total_charge())
 
     def test_total_point(self):
         c1 = Customer("Bill")
         c1.add_rental(Rental(self.new_movie, 1))
         c1.add_rental(Rental(self.childrens_movie, 1))
-        self.assertEqual(2, c1.total_points())
+        self.assertEqual(2, c1.get_total_rental_points())
         c2 = Customer("Billy")
         c2.add_rental(Rental(self.new_movie, 2))
         c2.add_rental(Rental(self.childrens_movie, 1))
-        self.assertEqual(3, c2.total_points())
+        self.assertEqual(3, c2.get_total_rental_points())
 
     def test_statement(self):
         stmt = self.c.statement()

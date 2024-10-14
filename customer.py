@@ -49,20 +49,20 @@ class Customer:
         # footer: summary of charges
         statement += "\n"
         statement += "{:40s}  {:6s} {:6.2f}\n".format(
-                       "Total Charges", "", self.total_charge())
-        statement += "Frequent Renter Points earned: {}\n".format(self.total_points())
+                       "Total Charges", "", self.get_total_charge())
+        statement += "Frequent Renter Points earned: {}\n".format(self.get_total_rental_points())
 
         return statement
 
-    def total_charge(self):
+    def get_total_charge(self):
         total_amount = 0
         for rental in self.rentals:
             total_amount += rental.get_price(rental)
         return total_amount
 
-    def total_points(self):
+    def get_total_rental_points(self):
         frequent_renter_points = 0
         for rental in self.rentals:
-            frequent_renter_points = rental.rental_points(frequent_renter_points, rental)
+            frequent_renter_points = rental.get_rental_points(frequent_renter_points, rental)
         return frequent_renter_points
 
