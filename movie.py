@@ -1,4 +1,4 @@
-from price_strategy import *
+from pricing import *
 
 
 class Movie:
@@ -15,12 +15,6 @@ class Movie:
     def get_price_code(self):
         # get the price code
         return self.price_code
-
-    def get_price(self, days):
-        return self.strategy.get_price(days)
-
-    def get_rental_points(self, days):
-        return self.strategy.get_rental_points(days)
     
     def get_title(self):
         return self.title

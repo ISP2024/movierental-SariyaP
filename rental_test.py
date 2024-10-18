@@ -1,6 +1,6 @@
 import unittest
 from customer import Customer
-from price_strategy import *
+from pricing import *
 from rental import Rental
 from movie import Movie
 
@@ -20,19 +20,19 @@ class RentalTest(unittest.TestCase):
 
 
     def test_rental_price(self):
-        rental = Rental(self.new_movie, 1)
+        rental = Rental(NEW_RELEASE, 1)
         self.assertEqual(rental.get_price(rental), 3.0)
-        rental = Rental(self.new_movie, 5)
+        rental = Rental(NEW_RELEASE, 5)
         self.assertEqual(rental.get_price(rental), 15.0)
-        rental = Rental(self.regular_movie, 5)
+        rental = Rental(REGULAR, 5)
         self.assertEqual(rental.get_price(rental), 6.5)
-        rental = Rental(self.childrens_movie, 5)
+        rental = Rental(CHILDREN, 5)
         self.assertEqual(rental.get_price(rental), 4.5)
 
     def test_rental_points(self):
-        rental = Rental(self.new_movie, 1)
+        rental = Rental(NEW_RELEASE, 1)
         self.assertEqual(rental.get_rental_points(0, rental), 1)
-        rental = Rental(self.regular_movie, 5)
+        rental = Rental(REGULAR, 5)
         self.assertEqual(rental.get_rental_points(0, rental), 1)
-        rental = Rental(self.childrens_movie, 10)
+        rental = Rental(CHILDREN, 10)
         self.assertEqual(rental.get_rental_points(0, rental), 1)

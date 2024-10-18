@@ -1,7 +1,7 @@
 import re
 import unittest 
 from customer import Customer
-from price_strategy import *
+from pricing import *
 from rental import Rental
 from movie import Movie
 
