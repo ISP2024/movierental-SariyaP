@@ -15,12 +15,17 @@ class Rental:
     For simplicity of this application only days_rented is recorded.
     """
     
-    def __init__(self, strategy: PriceStrategy, days_rented):
+    def __init__(self, price_code, strategy: PriceStrategy, days_rented):
         """Initialize a new movie rental object for
            a movie with known rental period (daysRented).
         """
         self.strategy = strategy
+        self.price_code = price_code
         self.days_rented = days_rented
+
+    def get_price_code(self):
+        # get the price code
+        return self.price_code
 
     def get_movie(self):
         return self.strategy

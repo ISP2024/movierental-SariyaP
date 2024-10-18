@@ -18,3 +18,6 @@ Before and after each refactoring you should **run the unit tests**.
 
 See [Resources](https://cpske.github.io/ISP/assignment/movierental/movierental-part1#resources) in the assignment description.
 
+## Rationale 
+2.1 Inappropriate Intimacy
+2.2 The Rental method can invoke function directly
