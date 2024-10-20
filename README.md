@@ -21,3 +21,5 @@ See [Resources](https://cpske.github.io/ISP/assignment/movierental/movierental-p
 ## Rationale 
 2.1 Inappropriate Intimacy
 2.2 The Rental method can invoke function directly
+5.1 movie module
+5.3 Since the movie module was being use for method for customer. Information Expert because class movie already have the needed information.
