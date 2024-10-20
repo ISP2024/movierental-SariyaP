@@ -26,6 +26,14 @@ class Movie:
     def get_year(self):
         return self.year
 
+    def get_price_for_movie(self):
+        if self.year == 2024:
+            return NEW_RELEASE
+        elif "children" in self.genre:
+            return CHILDREN
+        else:
+            return REGULAR
+
 class MovieCatalog(ABC):
     def __init__(self):
         self.__movies = []

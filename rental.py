@@ -38,4 +38,3 @@ class Rental:
 
     def get_rental_points(self, frequent_renter_points, rental):
         return frequent_renter_points + self.strategy.get_rental_points(rental.get_days_rented())
-
